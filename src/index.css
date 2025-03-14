@@ -1,0 +1,118 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 22% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 22% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 22% 10%;
+
+    --primary: 210 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 10% 96%;
+    --secondary-foreground: 210 22% 10%;
+
+    --muted: 210 10% 96%;
+    --muted-foreground: 210 20% 50%;
+
+    --accent: 210 10% 96%;
+    --accent-foreground: 210 22% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 10% 90%;
+    --input: 210 10% 90%;
+    --ring: 210 100% 60%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-sm;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  .interactive-card {
+    @apply rounded-2xl bg-white border border-border p-6 transition duration-300 shadow-sm hover:shadow-md hover:translate-y-[-2px];
+  }
+
+  .subtle-shine {
+    @apply relative overflow-hidden;
+  }
+
+  .subtle-shine::after {
+    content: "";
+    @apply absolute top-0 left-[-100%] right-0 bottom-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform transition-all duration-1500 ease-in-out;
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+}
