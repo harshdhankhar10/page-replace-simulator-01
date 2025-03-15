@@ -18,7 +18,7 @@ const AIRecommendation: React.FC = () => {
       </div>
       
       <p className="text-sm text-muted-foreground mb-6">
-        Powered by Google Gemini 2.0 - Smart analysis of algorithm performance
+        Smart analysis of algorithm performance
       </p>
       
       {isLoadingAI ? (
